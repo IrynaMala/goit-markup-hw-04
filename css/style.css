@@ -157,16 +157,12 @@ nav {
   margin-right: 0;
 }
 
-.primary-button:hover,
-.primary-button:focus {
-  fill: var(--accent-color)
-}
-
 .primary-button {
+  display: flex;
+  align-items: center;
   color: var(--primary-text-color);
   font-family: inherit;
   font-weight: 500;
-  font-size: 14;
   line-height: 1.14;
   letter-spacing: 0.02em;
   padding-top: 32px;
@@ -544,7 +540,11 @@ address {
   padding: 0;
   width: 16px;
   height: 12px;
-  fill: var(--primary-text-color)
+  fill: currentColor;
+ }
+
+ .phone {
+   
  }
 
 
