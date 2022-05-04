@@ -47,7 +47,16 @@
         <section class="hero-section overlay">
             <div class="container header"> 
                 <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                <button type="button" class="secondary-button">Заказать услугу</button>
+                <button type="button" class="secondary-button" data-modal-open>Заказать услугу</button>
+                <div class="backdrop is-hidden" data-modal>
+                    <div class="modal">
+                        <button data-modal-close>
+                            <svg class="close">
+                                <use href="./images/Close.svg"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
         <!--Second section-->
@@ -100,13 +109,22 @@
                 <h2 class="secondary-title">Чем мы занимаемся</h2>
                 <ul class="list works">
                     <li class="photos">
-                        <img src="./images/photo1.jpg" alt="Тайпинг на клавиатуре" width="370" height="294">
+                        <div class="action-thumb">
+                            <img src="./images/photo1.jpg" alt="Тайпинг на клавиатуре" width="370" height="294">
+                            <p class="actions">Десктопные приложения</p>
+                        </div>
                     </li>
                     <li class="photos">
-                        <img src="./images/photo2.jpg" alt="Разные виды сайтов для телефонного режима" width="370" height="294">
+                        <div class="action-thumb">
+                            <img src="./images/photo2.jpg" alt="Разные виды сайтов для телефонного режима" width="370" height="294">
+                            <p class="actions">Мобильные приложения</p>
+                        </div>
                     </li>
                     <li class="photos">
-                        <img src="./images/photo3.jpg" alt="Цветовая гамма" width="370" height="294">
+                        <div class="action-thumb">
+                            <img src="./images/photo3.jpg" alt="Цветовая гамма" width="370" height="294">
+                            <p class="actions">Дизайнерские решения</p>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -247,6 +265,7 @@
             </div>
         </div>
     </footer>
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>

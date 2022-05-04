@@ -120,15 +120,36 @@ nav {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  /* transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .site-nav .link.current {
+  position: relative;
   color: var(--accent-color);
 }
 
 .link:hover,
 .link:focus {
   color: var(--accent-color);
+  
+}
+
+.current::after {
+position: absolute;
+display: inline-block;
+content: " ";
+bottom: 0;
+left: 0;
+Width: 100%;
+Height: 4px;
+background: #2196F3;
+border-radius: 2px;
 }
 
 .list,
@@ -175,6 +196,7 @@ nav {
 .primary-button:focus {
   cursor: pointer;
   color: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   
 }
 
@@ -241,6 +263,7 @@ nav {
   color: var(--main-background-color);
   background-color: var(--button-background-color);
   font-family: inherit;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*Other sections*/
@@ -314,6 +337,34 @@ img {
   margin-right: 30px ;
 }
 
+.action-thumb {
+  position: relative;
+}
+
+.actions {
+position: absolute;
+bottom: 27px;
+left: 0;
+right: 0;
+
+font-weight: 700;
+line-height: 1.14;
+text-align: center;
+letter-spacing: 0.03em;
+text-transform: uppercase;
+color: var(--main-background-color);
+}
+
+.action-thumb::before {
+  position: absolute;
+  display: inline-block;
+  content: " ";
+  bottom: 0;
+  width: 370px;
+  height: 70px;
+
+  background: rgba(47, 48, 58, 0.8);
+}
 
 /*Fourth section*/
 
@@ -464,7 +515,9 @@ address {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
   0px 1px 2px rgba(0, 0, 0, 0.08),
   0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 .portfolio-examples.list {
   display: flex;
@@ -490,6 +543,7 @@ address {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
   0px 4px 4px rgba(0, 0, 0, 0.06),
   1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .names {
@@ -514,11 +568,51 @@ address {
   letter-spacing: 0.06em;
 }
 
-.portfolio-examples p {
+.portfolio-examples .ex-names {
   font-size: 16px;
   line-height: 1.88;
 }
- 
+
+.portfo-thumb {
+  position: relative;
+}
+
+.portfo-thumb::before {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);;
+  opacity: 0;
+}
+
+.portfo-thumb:hover::before {
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+} 
+
+
+.suggestion {
+  position: absolute;
+  top: 63px;
+  left: 24px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  color: var(--main-background-color);
+  opacity: 0;
+}
+
+.portfolio-item:hover .suggestion {
+  opacity: 1;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .secondary-title.portfolio {
 
   font-weight: 700;
@@ -532,12 +626,8 @@ address {
 .button-portfolio:hover {
   color: var(--main-background-color);
   background-color: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
-
-
-
 
 /* Sprite.css  */
 /* Header */
@@ -556,7 +646,10 @@ address {
    width: 10px;
    height: 16px;
  }
-
+ /* Hero section */
+ .close {
+  fill: #000000;
+ }
 
  /* Second section */
  .features {
@@ -601,6 +694,7 @@ address {
   fill: var(--accent-color);
   border: 1px solid var(--accent-color);
   border-radius: 4px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -657,6 +751,7 @@ margin-bottom: 20px;
 .footer-sites:hover,
 .footer-sites:focus {
   background: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-sites:last-child {
@@ -677,3 +772,33 @@ margin-bottom: 20px;
   fill: var(--main-background-color);
 } 
  
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 15px;
+  width: 528px;
+  height: 581px;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+  0px 1px 1px rgba(0, 0, 0, 0.14),
+  0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
